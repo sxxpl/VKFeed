@@ -1,0 +1,8 @@
+ use_frameworks!
+target 'VKFeed' do
+	pod 'RealmSwift', '~> 10.28.1', :modular_headers => true
+	pod 'Realm', '~> 10.28.1', :modular_headers => true
+	pod 'SwiftKeychainWrapper'
+	pod 'PromiseKit'
+	pod 'Alamofire'
+end
