@@ -90,7 +90,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="oPU-uB-Lfh">
             <objects>
-                <tabBarController id="Jq9-Ji-aDy" customClass="MainTabBarController" customModule="VKFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabBarContoller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jq9-Ji-aDy" customClass="MainTabBarController" customModule="VKFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OHP-Bc-WMk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

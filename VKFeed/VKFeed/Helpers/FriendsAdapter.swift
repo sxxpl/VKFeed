@@ -16,6 +16,7 @@ final class FriendsAdapter {
     let photoService = PhotoService(container: UITableView())
 
     func getFriends(completion: @escaping ([User]) -> Void) {
+        vkService.getFriends{}
         guard let realm = try? Realm() else {
             return
         }
@@ -29,7 +30,7 @@ final class FriendsAdapter {
     
     
     private func friends(from realmFriend: FriendInformationResponse) -> User {
-        return User(name: realmFriend.firstName + "" + realmFriend.lastName, image: photoService.photo(byUrl: realmFriend.photoProfile) ?? UIImage(), id: realmFriend.id)
+        return User(name: realmFriend.firstName + " " + realmFriend.lastName, image: photoService.photo(byUrl: realmFriend.photoProfile) ?? UIImage(), id: realmFriend.id)
     }
     
 }
