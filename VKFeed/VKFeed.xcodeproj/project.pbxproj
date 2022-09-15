@@ -25,6 +25,8 @@
 		AD7FE05328C775BA000BB520 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FE05228C775BA000BB520 /* MainTabBarController.swift */; };
 		AD7FE05528C7785A000BB520 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FE05428C7785A000BB520 /* FriendsViewController.swift */; };
 		AD7FE05828C77D8A000BB520 /* VKService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FE05728C77D8A000BB520 /* VKService.swift */; };
+		ADB3858828D3ADBA004D1D93 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */; };
+		ADB3858A28D3B287004D1D93 /* BigPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB3858928D3B287004D1D93 /* BigPhotoViewController.swift */; };
 		ADFF3E4D28D140A8008A5C41 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF3E4C28D140A8008A5C41 /* ShadowView.swift */; };
 		ADFF3E5028D14680008A5C41 /* FriendsPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF3E4F28D14680008A5C41 /* FriendsPhotosCollectionViewController.swift */; };
 		ADFF3E5228D146D3008A5C41 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF3E5128D146D3008A5C41 /* PhotoCollectionViewCell.swift */; };
@@ -53,6 +55,8 @@
 		AD7FE05228C775BA000BB520 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AD7FE05428C7785A000BB520 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		AD7FE05728C77D8A000BB520 /* VKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKService.swift; sourceTree = "<group>"; };
+		ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
+		ADB3858928D3B287004D1D93 /* BigPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewController.swift; sourceTree = "<group>"; };
 		ADFF3E4C28D140A8008A5C41 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		ADFF3E4F28D14680008A5C41 /* FriendsPhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		ADFF3E5128D146D3008A5C41 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				AD7FE05028C77554000BB520 /* SessionSingleton.swift */,
+				ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */,
 				AD06486E28CF6C2600393F6D /* VKDataModels.swift */,
 				AD06487A28CF759100393F6D /* UserStruct.swift */,
 			);
@@ -173,9 +178,18 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		ADB3858B28D3B28F004D1D93 /* BigPhotoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ADB3858928D3B287004D1D93 /* BigPhotoViewController.swift */,
+			);
+			path = BigPhotoViewController;
+			sourceTree = "<group>";
+		};
 		ADFF3E4E28D1464F008A5C41 /* FriendsPhotosCollection */ = {
 			isa = PBXGroup;
 			children = (
+				ADB3858B28D3B28F004D1D93 /* BigPhotoViewController */,
 				ADFF3E4F28D14680008A5C41 /* FriendsPhotosCollectionViewController.swift */,
 				ADFF3E5128D146D3008A5C41 /* PhotoCollectionViewCell.swift */,
 				ADFF3E5328D14700008A5C41 /* LikeControl.swift */,
@@ -313,6 +327,7 @@
 				AD06487B28CF759100393F6D /* UserStruct.swift in Sources */,
 				ADFF3E5228D146D3008A5C41 /* PhotoCollectionViewCell.swift in Sources */,
 				AD7FE05328C775BA000BB520 /* MainTabBarController.swift in Sources */,
+				ADB3858A28D3B287004D1D93 /* BigPhotoViewController.swift in Sources */,
 				AD7FE04F28C774B5000BB520 /* WebViewController.swift in Sources */,
 				AD06488128CF79AA00393F6D /* PhotoService.swift in Sources */,
 				AD06487628CF71ED00393F6D /* UIImageLoadExtension.swift in Sources */,
@@ -320,6 +335,7 @@
 				ADFF3E5028D14680008A5C41 /* FriendsPhotosCollectionViewController.swift in Sources */,
 				ADFF3E4D28D140A8008A5C41 /* ShadowView.swift in Sources */,
 				AD7FE05528C7785A000BB520 /* FriendsViewController.swift in Sources */,
+				ADB3858828D3ADBA004D1D93 /* PhotoStruct.swift in Sources */,
 				AD06487D28CF766200393F6D /* FriendsAdapter.swift in Sources */,
 				AD06487928CF732C00393F6D /* AppErrors.swift in Sources */,
 				AD7FE05828C77D8A000BB520 /* VKService.swift in Sources */,
@@ -400,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -454,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

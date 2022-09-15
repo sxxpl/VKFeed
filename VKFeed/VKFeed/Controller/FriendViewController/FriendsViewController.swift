@@ -71,6 +71,7 @@ extension FriendsViewController:UITableViewDelegate, UITableViewDataSource {
         var nextViewController = FriendsPhotosCollectionViewController(collectionViewLayout: layout)
         nextViewController.id = sortedFriends[sortedFriends.keys.sorted()[indexPath.section]]?[indexPath.row].id ?? 0
         navigationController?.pushViewController(nextViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

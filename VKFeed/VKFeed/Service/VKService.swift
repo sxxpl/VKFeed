@@ -18,8 +18,7 @@ final class VKService {
         getFriendsUrl()
             .then(on: .global(), getFriendsData(_:))
             .then(on: .global(), getParsedFriendsData(_:))
-            .done(on: .main){ friends in
-                self.saveFriends(friends: friends)
+            .done(on: .global()){ friends in
                 completion()
             }.catch {error in
                 print(error)
@@ -61,6 +60,13 @@ final class VKService {
                     resolver.reject(AppError.errorTask)
                     return
                 }
+                let decoder = JSONDecoder()
+                do{
+                let result = try decoder.decode(VKFriends.self, from: data)
+                    resolver.fulfill(data)
+                } catch {
+                    print(error)
+                }
                 resolver.fulfill(data)
             }.resume()
         }
@@ -72,12 +78,15 @@ final class VKService {
             let decoder = JSONDecoder()
             do {
                 let result = try decoder.decode(VKFriends.self, from: data)
+                self.saveFriends(friends: result)
                 resolver.fulfill(result)
             }catch {
                 resolver.reject(AppError.errorTask)
             }
         }
     }
+    
+    
     
     
 
@@ -96,9 +105,6 @@ final class VKService {
         guard let url = urlComponents.url else {return}
         
         let request = URLRequest(url: url)
-        
-        
-        print(request)
         
         URLSession.shared.dataTask(with: request) {[weak self]data, response, error in
             if let error = error  {
@@ -134,8 +140,6 @@ final class VKService {
         guard let url = urlComponents.url else {return}
         
         let request = URLRequest(url: url)
-        
-        print(request)
         
         URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
             if let error = error  {
@@ -193,7 +197,6 @@ final class VKService {
                                     URLQueryItem(name: "count", value: "20"),
                                     URLQueryItem(name: "access_token", value: Session.instance.token),
                                     URLQueryItem(name: "v", value: "5.131")]
-        print(urlComponents.url)
         return urlComponents.url
         
        

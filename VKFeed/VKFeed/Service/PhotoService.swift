@@ -140,6 +140,7 @@ extension PhotoService {
 extension PhotoService {
     func photo(byUrl url: String) -> UIImage?{
         var image:UIImage?
+        var photo = images[url]
         if let photo = images[url] {
             image = photo
         } else if let photo = getImageFromCache(url: url){
