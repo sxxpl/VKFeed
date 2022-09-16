@@ -21,9 +21,8 @@ class FriendsPhotosCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoService = PhotoService(container: collectionView)
-        setupCollectionView()
         loadPhotos()
-    }
+        setupCollectionView()    }
     
     func setupCollectionView(){
         collectionView!.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
@@ -46,8 +45,7 @@ class FriendsPhotosCollectionViewController: UICollectionViewController {
         if photos[indexPath.row].isLiked {
             cell.like.likeImage.image = UIImage(systemName: "heart.fill")
         }
-        cell.photo = photos[indexPath.row]
-        
+        cell.photo = photos[indexPath.row]        
         return cell
     }
     
@@ -64,17 +62,9 @@ class FriendsPhotosCollectionViewController: UICollectionViewController {
         newViewController.selectedPhotoIndex = selectedItem
         navigationController?.pushViewController(newViewController, animated: true)
     }
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "ShowPhotos",
-    //           let allPhotoVC = segue.destination as? PhotosGalViewController,
-    //           let selectedPhoto = collectionView.indexPathsForSelectedItems?.first
-    //        {
-    //            allPhotoVC.selectedPhotoIndex = selectedPhoto.item
-    //            allPhotoVC.profImage = photos
-    //        }
-    //    }
 }
+
+
 extension FriendsPhotosCollectionViewController{
     private func loadPhotos(){
         service.getPhotos(id: self.id) { [weak self] result in
@@ -92,8 +82,14 @@ extension FriendsPhotosCollectionViewController{
     }
     
     private func infoTransform(){
-        for response in VKFriendsPhotoModel?.response?.items ?? List<FriendPhotoInformationResponse>() {
-            self.photos.append(Photo(image:photoService?.photo(byUrl: response.sizes[response.sizes.endIndex-1].url) ?? UIImage()))
+        guard let items = VKFriendsPhotoModel?.response?.items else {
+            return
+        }
+        for i in 0..<items.count{
+            photoService?.photo(byUrl: items[i].sizes[items[i].sizes.endIndex-1].url){[weak self]image in
+                self?.photos.append(Photo(image:image))
+                self?.collectionView.reloadItems(at: [IndexPath(row: i, section: 0)])
+            }
         }
     }
     
@@ -105,7 +101,7 @@ extension FriendsPhotosCollectionViewController:UICollectionViewDelegateFlowLayo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return view.bounds.width * 0.04
     }
 }
 

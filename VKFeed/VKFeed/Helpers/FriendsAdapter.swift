@@ -13,11 +13,13 @@ import PromiseKit
 final class FriendsAdapter {
     
     private let vkService = VKService()
+    
+    let photoService = PhotoService(container: UITableView())
   
     func getFriends(completion: @escaping ([User]) -> Void) {
         vkService.getFriends {
             self.loadFriends()
-                .done(on: .main){friends in
+                .done(on: .global()){friends in
                     completion(friends)
                 }
         }
@@ -43,7 +45,7 @@ final class FriendsAdapter {
 
     
     private func friends(from realmFriend: FriendInformationResponse) -> User {
-        return User(name: realmFriend.firstName + " " + realmFriend.lastName, image: try! UIImage(data: try! Data(contentsOf: URL(string: realmFriend.photoProfile)!)) ?? UIImage(), id: realmFriend.id)
+        return User(name: realmFriend.firstName + " " + realmFriend.lastName, image: photoService.photo(byUrl: realmFriend.photoProfile,synchr: true) ?? UIImage(), id: realmFriend.id)
     }
     
 }

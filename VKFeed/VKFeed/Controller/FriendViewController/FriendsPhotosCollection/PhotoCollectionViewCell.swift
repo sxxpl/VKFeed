@@ -65,6 +65,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    
     override func prepareForReuse() {
         like.isLike = false
         like.likeImage.image = nil

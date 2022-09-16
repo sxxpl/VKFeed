@@ -34,12 +34,13 @@ class BigPhotoViewController: UIViewController {
         view.sendSubviewToBack(additionalImageView)
         additionalImageView.translatesAutoresizingMaskIntoConstraints  = false
         additionalImageView.contentMode = .scaleAspectFit
+        bigPhotoImage.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([
             bigPhotoImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             bigPhotoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bigPhotoImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bigPhotoImage.heightAnchor.constraint(equalToConstant: (view.bounds.width * (bigPhotoImage.image?.size.height ?? 0))/(bigPhotoImage.image?.size.width ?? 0)),
+            bigPhotoImage.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.5),
             additionalImageView.leadingAnchor.constraint(equalTo: bigPhotoImage.leadingAnchor),
             additionalImageView.trailingAnchor.constraint(equalTo: bigPhotoImage.trailingAnchor),
             additionalImageView.topAnchor.constraint(equalTo: bigPhotoImage.topAnchor),
@@ -73,9 +74,6 @@ class BigPhotoViewController: UIViewController {
             self.bigPhotoImage.image=self.profImage[self.selectedPhotoIndex]
             self.bigPhotoImage.transform = .identity
         })
-        NSLayoutConstraint.activate([
-            bigPhotoImage.heightAnchor.constraint(equalToConstant: (view.bounds.width * (bigPhotoImage.image?.size.height ?? 0))/(bigPhotoImage.image?.size.width ?? 0)),
-        ])
     }
     
     @objc func rightSwipeFunc() {
@@ -97,9 +95,6 @@ class BigPhotoViewController: UIViewController {
             self.view.sendSubviewToBack(self.additionalImageView)
             self.bigPhotoImage.transform = .identity
         })
-        NSLayoutConstraint.activate([
-            bigPhotoImage.heightAnchor.constraint(equalToConstant: (view.bounds.width * (bigPhotoImage.image?.size.height ?? 0))/(bigPhotoImage.image?.size.width ?? 0)),
-        ])
     }
     
 }

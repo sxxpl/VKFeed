@@ -25,6 +25,7 @@ final class VKService {
             }
     }
     
+    
     ///url для запроса друзей
     
     func getFriendsUrl()->Promise<URL>{
@@ -53,19 +54,12 @@ final class VKService {
     func getFriendsData(_ url:URL) -> Promise<Data> {
         return Promise{ resolver in
             URLSession.shared.dataTask(with: URLRequest(url:url)) {data, response, error in
-                if let error = error  {
-                    print(error)
+                if let _ = error  {
+                    resolver.reject(AppError.errorTask)
                 }
                 guard let data = data else {
                     resolver.reject(AppError.errorTask)
                     return
-                }
-                let decoder = JSONDecoder()
-                do{
-                let result = try decoder.decode(VKFriends.self, from: data)
-                    resolver.fulfill(data)
-                } catch {
-                    print(error)
                 }
                 resolver.fulfill(data)
             }.resume()
@@ -128,6 +122,17 @@ final class VKService {
     
     ///загрузка фото пользователя
     func getPhotos(id:Int,completion: @escaping ((Swift.Result<VKFriendsPhoto,Error>) -> ())) {
+        getPhotoUrl(id:id)
+            .then(on: .global(), getPhotoData(_:))
+            .then(on: .global(), getParsedPhotoData(_:))
+            .done(on: .global()){photos in
+                completion(.success(photos))
+            }.catch {error in
+                print(error)
+            }
+    }
+    
+    func getPhotoUrl(id:Int)->Promise<URL>{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -137,28 +142,47 @@ final class VKService {
                                     URLQueryItem(name: "count", value: "20"),
                                     URLQueryItem(name: "access_token", value: Session.instance.token),
                                     URLQueryItem(name: "v", value: "5.131")]
-        guard let url = urlComponents.url else {return}
-        
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
-            if let error = error  {
-                print(error)
-            }
-            guard let data = data else {
+        return Promise{ resolver in
+            guard let url = urlComponents.url else {
+                resolver.reject(AppError.notCorrectUrl)
                 return
             }
+            resolver.fulfill(url)
+        }
+       
+    }
+    
+    func getPhotoData(_ url:URL) -> Promise<Data> {
+        return Promise{ resolver in
+            URLSession.shared.dataTask(with: URLRequest(url:url)) {data, response, error in
+                if let _ = error  {
+                    resolver.reject(AppError.errorTask)
+                }
+                guard let data = data else {
+                    resolver.reject(AppError.errorTask)
+                    return
+                }
+                resolver.fulfill(data)
+            }.resume()
+        }
+    }
+    
+    func getParsedPhotoData(_ data:Data) -> Promise<VKFriendsPhoto> {
+        return Promise{ resolver in
             let decoder = JSONDecoder()
             do {
                 let result = try decoder.decode(VKFriendsPhoto.self, from: data)
-                completion(.success(result))
-            }catch {
-                print(error)
+                resolver.fulfill(result)
+            } catch {
+                resolver.reject(AppError.errorTask)
             }
-        }.resume()
+        }
     }
     
     
+    
+    
+    ///загрузка новостей
     func getNews(completion: @escaping ((Swift.Result<VKNews,Error>) -> ()),_ nextForm:String?){
         var url:URL
         if let nextForm = nextForm {
@@ -239,19 +263,6 @@ private extension VKService {
             realm.beginWrite()
             realm.delete(groupsOld)
             realm.add(groups)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-    }
-    
-    func saveFriendsPhoto(friendsPhotos: VKFriendsPhoto){
-        do {
-            let realm = try Realm()
-            let friendsPhotosOld = realm.objects(VKFriendsPhoto.self)
-            realm.beginWrite()
-            realm.delete(friendsPhotosOld)
-            realm.add(friendsPhotos)
             try realm.commitWrite()
         } catch {
             print(error)

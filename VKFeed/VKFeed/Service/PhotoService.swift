@@ -63,10 +63,8 @@ class PhotoService{
         guard
             lifeTime <= cacheLifeTime,
             let image = UIImage(contentsOfFile: fileName) else {return nil}
-        
-        DispatchQueue.main.async {
+    
             self.images[url] = image
-        }
         return image
     }
     
@@ -138,27 +136,35 @@ extension PhotoService {
 
 ///получение фото без индекспаса
 extension PhotoService {
-    func photo(byUrl url: String) -> UIImage?{
+    func photo(byUrl url: String, completion:((UIImage) -> Void)? = nil,synchr:Bool = false) -> UIImage?{
         var image:UIImage?
-        var photo = images[url]
         if let photo = images[url] {
             image = photo
+            completion?(image!)
         } else if let photo = getImageFromCache(url: url){
             image = photo
+            completion?(image!)
         } else {
-            loadPhoto( byUrl: url)
+            if synchr {
+                image = UIImage(data: try! Data(contentsOf: URL(string: url)!))!
+                self.images[url] = image
+                self.saveImageToCache(url: url, image :image ?? UIImage())
+                return image
+            }
+            loadPhoto( byUrl: url,completion: completion)
             image = images[url]
         }
         return image
     }
     
-    private func loadPhoto(byUrl url: String){
+    private func loadPhoto(byUrl url: String,completion:((UIImage) -> Void)? = nil){
         AF.request(url).responseData(queue:DispatchQueue.global()){[weak self] response in
             guard
                 let data = response.data,
                 let image  = UIImage(data: data) else {return}
             DispatchQueue.main.async {
                 self?.images[url] = image
+                completion?(image)
             }
             self?.saveImageToCache(url: url, image :image)
         }
