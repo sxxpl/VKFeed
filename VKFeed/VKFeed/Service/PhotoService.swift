@@ -39,14 +39,14 @@ class PhotoService{
     
     
     ///загрузка изображения из images/кэша/интернета
-    func photoAtIndexPath(atIndexPath indexPath: IndexPath, byUrl url: String) -> UIImage?{
+    func photoAtIndexPath(atIndexPath indexPath: IndexPath, byUrl url: String,completion:((UIImage)->Void)? = nil) -> UIImage?{
         var image:UIImage?
         if let photo = images[url] {
             image = photo
         } else if let photo = getImageFromCache(url: url){
             image = photo
         } else {
-            loadPhotoWithIndexPath(atIndexPath: indexPath, byUrl: url)
+            loadPhotoWithIndexPath(atIndexPath: indexPath, byUrl: url,completion: completion)
             image = images[url]
         }
         return image
@@ -77,16 +77,15 @@ class PhotoService{
     }
     
     ///загрузка фото с API и сохранение его в кэш
-    private func loadPhotoWithIndexPath(atIndexPath indexPath: IndexPath, byUrl url: String){
+    private func loadPhotoWithIndexPath(atIndexPath indexPath: IndexPath, byUrl url: String,completion:((UIImage)->Void)? = nil){
         AF.request(url).responseData(queue:DispatchQueue.global()){[weak self] response in
             guard
                 let data = response.data,
                 let image  = UIImage(data: data) else {return}
-            DispatchQueue.main.async {
-                self?.images[url] = image
-            }
+//            self?.images[url] = image
             self?.saveImageToCache(url: url, image :image)
             DispatchQueue.main.async {
+                completion?(image)
                 self?.container.reloadRow(atIndexpath: indexPath)
             }
         }

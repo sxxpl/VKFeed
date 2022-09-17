@@ -12,8 +12,15 @@ class FriendsViewController: UIViewController {
     
     var friends=[User]()
     var sortedFriends = [Character:[User]]()
+    var sortedFriendsIndexes = [Character:[Int]]()
     
-    let service = FriendsAdapter()
+    var service:FriendsAdapter?
+    
+    private var notificationToken: NotificationToken?
+    let realm = RealmCacheService()
+    private var friendRespons: Results<VKFriends>? {
+        realm.read(VKFriends.self)
+    }
     
     private var photoService: PhotoService?
 
@@ -22,6 +29,9 @@ class FriendsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        self.service = FriendsAdapter(viewController: self)
+        createNotificatoinToken()
         setupTableView()
         photoService = PhotoService(container: tableView)
         loadFriends()
@@ -78,10 +88,10 @@ extension FriendsViewController:UITableViewDelegate, UITableViewDataSource {
 extension FriendsViewController {
     ///загрузка друзей вк
     private func loadFriends(){
-        service.getFriends{ [weak self] newFriends in
+        service?.getFriends{ [weak self] newFriends in
                 DispatchQueue.main.async {
                     self?.friends = newFriends
-                    self?.sortedFriends = (self?.sort(friends: self?.friends ?? [])) ?? [:]
+                    self?.sortedFriends = self?.sort(friends: newFriends) ?? [:]
                     self?.tableView.reloadData()
                 }
         }
@@ -90,10 +100,12 @@ extension FriendsViewController {
     ///сортировка для отображения друзей по алфавиту
     private func sort(friends:[User])->[Character:[User]]{
         var friendDict = [Character:[User]]()
-        friends.forEach(){friend in
-            guard let firstChar = friend.name.first else {return}
+        for i in 0..<friends.count{
+            var friend = friends[i]
+            guard let firstChar = friend.name.first else {break}
 
-            if var thisCharFriends = friendDict[firstChar]{
+            if var thisCharFriends = friendDict[firstChar]
+            {
                 thisCharFriends.append(friend)
                 friendDict[firstChar] = thisCharFriends
             } else {
@@ -102,4 +114,23 @@ extension FriendsViewController {
         }
         return friendDict
     }
+}
+
+extension FriendsViewController {
+    func createNotificatoinToken(){
+        notificationToken = friendRespons?.observe{ [weak self] result in
+            guard let self = self else {return}
+            switch result{
+            case .initial(let friendData):
+                print("\(friendData.count)")
+            case .update( _,
+                          deletions: _,
+                          insertions: _,
+                          modifications: _):
+                self.loadFriends()
+            case .error(let error):
+                print(error)
+                }
+            }
+        }
 }

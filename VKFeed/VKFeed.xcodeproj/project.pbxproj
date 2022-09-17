@@ -25,6 +25,8 @@
 		AD7FE05328C775BA000BB520 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FE05228C775BA000BB520 /* MainTabBarController.swift */; };
 		AD7FE05528C7785A000BB520 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FE05428C7785A000BB520 /* FriendsViewController.swift */; };
 		AD7FE05828C77D8A000BB520 /* VKService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FE05728C77D8A000BB520 /* VKService.swift */; };
+		AD8C953828D632DE0079C5B1 /* RealmCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C953728D632DE0079C5B1 /* RealmCacheService.swift */; };
+		AD929DA528D66D370083F058 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD929DA428D66D370083F058 /* GroupViewController.swift */; };
 		ADB3858828D3ADBA004D1D93 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */; };
 		ADB3858A28D3B287004D1D93 /* BigPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB3858928D3B287004D1D93 /* BigPhotoViewController.swift */; };
 		ADFF3E4D28D140A8008A5C41 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF3E4C28D140A8008A5C41 /* ShadowView.swift */; };
@@ -55,6 +57,8 @@
 		AD7FE05228C775BA000BB520 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AD7FE05428C7785A000BB520 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		AD7FE05728C77D8A000BB520 /* VKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKService.swift; sourceTree = "<group>"; };
+		AD8C953728D632DE0079C5B1 /* RealmCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCacheService.swift; sourceTree = "<group>"; };
+		AD929DA428D66D370083F058 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
 		ADB3858928D3B287004D1D93 /* BigPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewController.swift; sourceTree = "<group>"; };
 		ADFF3E4C28D140A8008A5C41 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				AD06487528CF71ED00393F6D /* UIImageLoadExtension.swift */,
 				AD06487828CF732C00393F6D /* AppErrors.swift */,
 				AD06487C28CF766200393F6D /* FriendsAdapter.swift */,
+				AD8C953728D632DE0079C5B1 /* RealmCacheService.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -133,7 +138,6 @@
 				AD7FE04C28C7741A000BB520 /* Controller */,
 				AD7FE03728C61452000BB520 /* AppDelegate.swift */,
 				AD7FE03928C61452000BB520 /* SceneDelegate.swift */,
-				AD7FE03D28C61452000BB520 /* Main.storyboard */,
 				AD7FE04028C61454000BB520 /* Assets.xcassets */,
 				AD7FE04228C61454000BB520 /* LaunchScreen.storyboard */,
 				AD7FE04528C61454000BB520 /* Info.plist */,
@@ -144,6 +148,7 @@
 		AD7FE04B28C77406000BB520 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AD7FE03D28C61452000BB520 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 		AD7FE04C28C7741A000BB520 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AD929DA328D66D1B0083F058 /* GroupViewController */,
 				AD06487728CF721100393F6D /* FriendViewController */,
 				AD7FE04E28C774B5000BB520 /* WebViewController.swift */,
 				AD7FE05228C775BA000BB520 /* MainTabBarController.swift */,
@@ -176,6 +182,14 @@
 				AD7FE05728C77D8A000BB520 /* VKService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		AD929DA328D66D1B0083F058 /* GroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD929DA428D66D370083F058 /* GroupViewController.swift */,
+			);
+			path = GroupViewController;
 			sourceTree = "<group>";
 		};
 		ADB3858B28D3B28F004D1D93 /* BigPhotoViewController */ = {
@@ -335,7 +349,9 @@
 				ADFF3E5028D14680008A5C41 /* FriendsPhotosCollectionViewController.swift in Sources */,
 				ADFF3E4D28D140A8008A5C41 /* ShadowView.swift in Sources */,
 				AD7FE05528C7785A000BB520 /* FriendsViewController.swift in Sources */,
+				AD929DA528D66D370083F058 /* GroupViewController.swift in Sources */,
 				ADB3858828D3ADBA004D1D93 /* PhotoStruct.swift in Sources */,
+				AD8C953828D632DE0079C5B1 /* RealmCacheService.swift in Sources */,
 				AD06487D28CF766200393F6D /* FriendsAdapter.swift in Sources */,
 				AD06487928CF732C00393F6D /* AppErrors.swift in Sources */,
 				AD7FE05828C77D8A000BB520 /* VKService.swift in Sources */,

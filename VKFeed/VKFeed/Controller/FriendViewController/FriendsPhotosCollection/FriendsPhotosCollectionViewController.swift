@@ -20,6 +20,7 @@ class FriendsPhotosCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         photoService = PhotoService(container: collectionView)
         loadPhotos()
         setupCollectionView()    }
