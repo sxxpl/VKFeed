@@ -77,12 +77,14 @@ final class GroupsResponse:Object, Decodable{
 }
 
 class GroupInformationResponse:Object, Decodable{
-    @objc dynamic var name: String
-    @objc dynamic var id: Int
+    @objc dynamic var name: String = ""
+    @objc dynamic var id: Int = 0
+    @objc dynamic var photo:String = ""
     
     enum CodingKeys:String, CodingKey {
         case name
         case id
+        case photo = "photo_100"
     }
 }
 

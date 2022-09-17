@@ -34,7 +34,7 @@ final class FriendsAdapter {
             guard let firstChar = realmFriend.firstName.first else {
                 continue
             }
-            var name = realmFriend.firstName + " " + realmFriend.lastName
+            let name = realmFriend.firstName + " " + realmFriend.lastName
             if var thisCharFriends = friendDict[firstChar]
             {
                 thisCharFriends.append(name)
@@ -47,7 +47,7 @@ final class FriendsAdapter {
             guard let firstChar = realmFriend.firstName.first else {
                 continue
             }
-            var name = realmFriend.firstName + " " + realmFriend.lastName
+            let name = realmFriend.firstName + " " + realmFriend.lastName
             guard let firstIndexOfName = friendDict[firstChar]?.firstIndex(of: name) else {
                 continue
             }

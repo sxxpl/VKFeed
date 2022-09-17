@@ -27,6 +27,9 @@
 		AD7FE05828C77D8A000BB520 /* VKService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FE05728C77D8A000BB520 /* VKService.swift */; };
 		AD8C953828D632DE0079C5B1 /* RealmCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8C953728D632DE0079C5B1 /* RealmCacheService.swift */; };
 		AD929DA528D66D370083F058 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD929DA428D66D370083F058 /* GroupViewController.swift */; };
+		AD929DA728D6745B0083F058 /* GroupAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD929DA628D6745B0083F058 /* GroupAdapter.swift */; };
+		AD929DA928D676310083F058 /* GroupStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD929DA828D676310083F058 /* GroupStruct.swift */; };
+		AD929DAB28D679450083F058 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD929DAA28D679450083F058 /* GroupTableViewCell.swift */; };
 		ADB3858828D3ADBA004D1D93 /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */; };
 		ADB3858A28D3B287004D1D93 /* BigPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB3858928D3B287004D1D93 /* BigPhotoViewController.swift */; };
 		ADFF3E4D28D140A8008A5C41 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF3E4C28D140A8008A5C41 /* ShadowView.swift */; };
@@ -59,6 +62,9 @@
 		AD7FE05728C77D8A000BB520 /* VKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKService.swift; sourceTree = "<group>"; };
 		AD8C953728D632DE0079C5B1 /* RealmCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCacheService.swift; sourceTree = "<group>"; };
 		AD929DA428D66D370083F058 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		AD929DA628D6745B0083F058 /* GroupAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAdapter.swift; sourceTree = "<group>"; };
+		AD929DA828D676310083F058 /* GroupStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStruct.swift; sourceTree = "<group>"; };
+		AD929DAA28D679450083F058 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
 		ADB3858928D3B287004D1D93 /* BigPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewController.swift; sourceTree = "<group>"; };
 		ADFF3E4C28D140A8008A5C41 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -93,8 +99,9 @@
 			children = (
 				AD06487528CF71ED00393F6D /* UIImageLoadExtension.swift */,
 				AD06487828CF732C00393F6D /* AppErrors.swift */,
-				AD06487C28CF766200393F6D /* FriendsAdapter.swift */,
 				AD8C953728D632DE0079C5B1 /* RealmCacheService.swift */,
+				AD06487C28CF766200393F6D /* FriendsAdapter.swift */,
+				AD929DA628D6745B0083F058 /* GroupAdapter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 				ADB3858728D3ADBA004D1D93 /* PhotoStruct.swift */,
 				AD06486E28CF6C2600393F6D /* VKDataModels.swift */,
 				AD06487A28CF759100393F6D /* UserStruct.swift */,
+				AD929DA828D676310083F058 /* GroupStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				AD929DA428D66D370083F058 /* GroupViewController.swift */,
+				AD929DAA28D679450083F058 /* GroupTableViewCell.swift */,
 			);
 			path = GroupViewController;
 			sourceTree = "<group>";
@@ -341,8 +350,10 @@
 				AD06487B28CF759100393F6D /* UserStruct.swift in Sources */,
 				ADFF3E5228D146D3008A5C41 /* PhotoCollectionViewCell.swift in Sources */,
 				AD7FE05328C775BA000BB520 /* MainTabBarController.swift in Sources */,
+				AD929DA928D676310083F058 /* GroupStruct.swift in Sources */,
 				ADB3858A28D3B287004D1D93 /* BigPhotoViewController.swift in Sources */,
 				AD7FE04F28C774B5000BB520 /* WebViewController.swift in Sources */,
+				AD929DA728D6745B0083F058 /* GroupAdapter.swift in Sources */,
 				AD06488128CF79AA00393F6D /* PhotoService.swift in Sources */,
 				AD06487628CF71ED00393F6D /* UIImageLoadExtension.swift in Sources */,
 				AD06486F28CF6C2600393F6D /* VKDataModels.swift in Sources */,
@@ -357,6 +368,7 @@
 				AD7FE05828C77D8A000BB520 /* VKService.swift in Sources */,
 				ADFF3E5428D14700008A5C41 /* LikeControl.swift in Sources */,
 				AD7FE03A28C61452000BB520 /* SceneDelegate.swift in Sources */,
+				AD929DAB28D679450083F058 /* GroupTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

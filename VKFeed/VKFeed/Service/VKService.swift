@@ -27,8 +27,7 @@ final class VKService {
     
     
     ///url для запроса друзей
-    
-    func getFriendsUrl()->Promise<URL>{
+    private func getFriendsUrl()->Promise<URL>{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -48,10 +47,8 @@ final class VKService {
        
     }
     
-    
-    
     /// запрос
-    func getFriendsData(_ url:URL) -> Promise<Data> {
+    private func getFriendsData(_ url:URL) -> Promise<Data> {
         return Promise{ resolver in
             URLSession.shared.dataTask(with: URLRequest(url:url)) {data, response, error in
                 if let _ = error  {
@@ -67,7 +64,7 @@ final class VKService {
     }
     
     ///парсим данные
-    func getParsedFriendsData(_ data:Data) -> Promise<VKFriends> {
+    private func getParsedFriendsData(_ data:Data) -> Promise<VKFriends> {
         return Promise{ resolver in
             let decoder = JSONDecoder()
             do {
@@ -83,11 +80,24 @@ final class VKService {
     
     
     
-
+    
     
     
     ///загрузrа групп пользователя
-    func getGroup(completion: @escaping (() -> Void)) {
+    func getGroups(completion: @escaping (() -> Void)) {
+        getGroupsUrl()
+            .then(on: .global(), getGroupsData(_:))
+            .then(on: .global(), getParsedGroupsData(_:))
+            .done(on: .global()){ friends in
+                completion()
+            }.catch {error in
+                print(error)
+            }
+    }
+    
+    
+    ///url для запроса групп
+    private func getGroupsUrl()->Promise<URL>{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -96,26 +106,45 @@ final class VKService {
                                     URLQueryItem(name: "extended", value: "1"),
                                     URLQueryItem(name: "access_token", value: Session.instance.token),
                                     URLQueryItem(name: "v", value: "5.131")]
-        guard let url = urlComponents.url else {return}
-        
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) {[weak self]data, response, error in
-            if let error = error  {
-                print(error)
-            }
-            guard let data = data else {
+        return Promise{ resolver in
+            guard let url = urlComponents.url else {
+                resolver.reject(AppError.notCorrectUrl)
                 return
             }
+            resolver.fulfill(url)
+        }
+        
+    }
+    
+    /// запрос
+    private func getGroupsData(_ url:URL) -> Promise<Data> {
+        return Promise{ resolver in
+            URLSession.shared.dataTask(with: URLRequest(url:url)) {data, response, error in
+                if let _ = error  {
+                    resolver.reject(AppError.errorTask)
+                }
+                guard let data = data else {
+                    resolver.reject(AppError.errorTask)
+                    return
+                }
+                resolver.fulfill(data)
+            }.resume()
+        }
+    }
+    
+    
+    ///парсим данные
+    private func getParsedGroupsData(_ data:Data) -> Promise<VKGroups> {
+        return Promise{ resolver in
             let decoder = JSONDecoder()
             do {
                 let result = try decoder.decode(VKGroups.self, from: data)
-                self?.saveGroups(groups: result)
-                completion()
+                self.saveGroups(groups: result)
+                resolver.fulfill(result)
             }catch {
-                print(error)
+                resolver.reject(AppError.errorTask)
             }
-        }.resume()
+        }
     }
     
     
@@ -132,7 +161,7 @@ final class VKService {
             }
     }
     
-    func getPhotoUrl(id:Int)->Promise<URL>{
+    private func getPhotoUrl(id:Int)->Promise<URL>{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -152,7 +181,7 @@ final class VKService {
        
     }
     
-    func getPhotoData(_ url:URL) -> Promise<Data> {
+    private func getPhotoData(_ url:URL) -> Promise<Data> {
         return Promise{ resolver in
             URLSession.shared.dataTask(with: URLRequest(url:url)) {data, response, error in
                 if let _ = error  {
@@ -167,7 +196,7 @@ final class VKService {
         }
     }
     
-    func getParsedPhotoData(_ data:Data) -> Promise<VKFriendsPhoto> {
+    private func getParsedPhotoData(_ data:Data) -> Promise<VKFriendsPhoto> {
         return Promise{ resolver in
             let decoder = JSONDecoder()
             do {
@@ -212,7 +241,7 @@ final class VKService {
     }
     
     ///получить url без данных следующей страницы
-    func getNewsUrl()->URL?{
+    private func getNewsUrl()->URL?{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -227,7 +256,7 @@ final class VKService {
     }
     
     ///получить url c данными следующей страницы
-    func getNewsUrl(_ nextFrom : String)->URL?{
+    private func getNewsUrl(_ nextFrom : String)->URL?{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -243,7 +272,7 @@ final class VKService {
 }
 
 private extension VKService {
-    func saveFriends(friends: VKFriends){
+    private func saveFriends(friends: VKFriends){
         do {
             let realm = try Realm()
             let friendsOld = realm.objects(VKFriends.self)
@@ -256,7 +285,7 @@ private extension VKService {
         }
     }
     
-    func saveGroups(groups: VKGroups){
+    private func saveGroups(groups: VKGroups){
         do {
             let realm = try Realm()
             let groupsOld = realm.objects(VKGroups.self)

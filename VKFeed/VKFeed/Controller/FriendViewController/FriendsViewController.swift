@@ -101,7 +101,7 @@ extension FriendsViewController {
     private func sort(friends:[User])->[Character:[User]]{
         var friendDict = [Character:[User]]()
         for i in 0..<friends.count{
-            var friend = friends[i]
+            let friend = friends[i]
             guard let firstChar = friend.name.first else {break}
 
             if var thisCharFriends = friendDict[firstChar]
