@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import FirebaseDatabase
 
 
 class GroupAdapter{
@@ -40,6 +41,9 @@ class GroupAdapter{
     
     
     private func groups(from realmGroup: GroupInformationResponse,indexPath:IndexPath) -> Group {
+        let com = FirebaseCommunity(name: realmGroup.name, id: realmGroup.id)
+        let reference = viewController?.ref.child(realmGroup.name.lowercased().removeCharacters(from: ".#$[]"))
+        reference?.setValue(com.toAnyObject())
         return Group(name: realmGroup.name, image: photoService.photoAtIndexPath(atIndexPath: indexPath, byUrl: realmGroup.photo,completion: { image in
             self.viewController?.groups[indexPath.row].image = image
         }) ?? UIImage())

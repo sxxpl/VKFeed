@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 class GroupViewController:UIViewController,UISearchBarDelegate {
     
@@ -25,8 +26,8 @@ class GroupViewController:UIViewController,UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     
-    //    private var groupFirebase:[FirebaseCommunity] = []
-    //    private var ref = Database.database().reference(withPath: "Communities")
+    var groupFirebase:[FirebaseCommunity] = []
+    var ref = Database.database().reference(withPath: "Communities")
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -37,18 +38,18 @@ class GroupViewController:UIViewController,UISearchBarDelegate {
         createNotificatoinToken()
         setupTableView()
         loadGroups()
-        //        ref.observe(.value) {snapshot in
-        //            var communities: [FirebaseCommunity] = []
-        //            for child in snapshot.children {
-        //                if let snapshot = child as? DataSnapshot,
-        //                   let group = FirebaseCommunity(snapshot: snapshot){
-        //                    communities.append(group)
-        //                }
-        //            }
-        //            print("Добавлена группа")
-        //            communities.forEach{print($0)}
-        //
-        //        }
+        ref.observe(.value) {snapshot in
+            var communities: [FirebaseCommunity] = []
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot,
+                   let group = FirebaseCommunity(snapshot: snapshot){
+                    communities.append(group)
+                }
+            }
+            print("Добавлена группа")
+            communities.forEach{print($0)}
+            
+        }
         searchBar.delegate = self
     }
     
@@ -132,16 +133,7 @@ extension GroupViewController:UITableViewDelegate ,UITableViewDataSource{
         }
     }
 
-    
-//    private func infoTransform(){
-//        for response in VKGroupsModel?.first?.response?.items ?? List<GroupInformationResponse>(){
-//            self.groups.append(Group(name: response.name, image: UIImage(named: "kot")))
-//            let com = FirebaseCommunity(name: response.name, id: response.id)
-//            let reference = self.ref.child(response.name.lowercased().removeCharacters(from: ".#$[]"))
-//            reference.setValue(com.toAnyObject())
-//        }
-//    }
-//
+
     
     func createNotificatoinToken(){
         notificationToken = groupRespons?.observe{ [weak self] result in
