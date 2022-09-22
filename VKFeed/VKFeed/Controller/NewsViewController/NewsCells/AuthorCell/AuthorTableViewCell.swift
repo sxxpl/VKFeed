@@ -12,10 +12,6 @@ class AuthorTableViewCell: UITableViewCell {
     @IBOutlet weak var authorImage: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     
-//    func configure(_ viewModel:NewsViewModel){
-//        self.authorImage = viewModel.authorImage
-//        self.authorLabel = viewModel.authorLabel
-//    }
     
     func configure(image:UIImage,text:String){
         self.authorImage.image = image

@@ -1159,17 +1159,145 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "974C89B2-4A5D-47C7-BD79-470823961FCF"
+            uuid = "4363BE2B-328F-4909-846A-CC817CB50EDC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Controller/NewsViewController/NewsCells/LikeCell/LikeTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "addLike(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D75D7133-AD56-4E5B-87EF-909F3E0A0C8F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Controller/NewsViewController/NewsCells/TextCell/TextTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "showMore(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EA0FBA74-7CAA-4C39-BB64-79A6E44CE0C9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Controller/NewsViewController/NewsCells/TextCell/TextTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "showMore(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCC32025-5613-43E9-B5E9-D0F54FEB8139"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKFeed/Controller/NewsViewController/NewsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "loadNews()"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "infoTransform()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FCC32025-5613-43E9-B5E9-D0F54FEB8139 - 1781b1a743c4c4af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.NewsViewController.infoTransformNextForm() -&gt; ()"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Controller/NewsViewController/NewsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "720">
+               </Location>
+               <Location
+                  uuid = "FCC32025-5613-43E9-B5E9-D0F54FEB8139 - 6081ae9edc0f2c4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (VKFeed.NewsItems) -&gt; VKFeed.News in VKFeed.NewsViewController.infoTransformNextForm() -&gt; ()"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Controller/NewsViewController/NewsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70369A2E-11B2-4D61-930A-D26A7F4A891B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Controller/NewsViewController/NewsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "infoTransformNextForm()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "70369A2E-11B2-4D61-930A-D26A7F4A891B - 1781b1a743c4c4ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.NewsViewController.infoTransformNextForm() -&gt; ()"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Controller/NewsViewController/NewsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+               <Location
+                  uuid = "70369A2E-11B2-4D61-930A-D26A7F4A891B - 1781b1a743c4c4ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.NewsViewController.infoTransformNextForm() -&gt; ()"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Controller/NewsViewController/NewsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "1152">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

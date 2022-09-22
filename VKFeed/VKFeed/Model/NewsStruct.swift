@@ -13,6 +13,8 @@ protocol NewsProtocol {
     var image:UIImage?{get set}
     var authorName: String {get set}
     var authorImage:UIImage{get set}
+    var aspectRatio:Double {get set}
+    var isOpen:Bool{get set}
 }
 
 struct News:NewsProtocol {
@@ -21,6 +23,8 @@ struct News:NewsProtocol {
     var image:UIImage?
     var authorName: String = ""
     var authorImage:UIImage = UIImage()
+    var aspectRatio:Double = 0
+    var isOpen:Bool = false
     
     init(countOfLikes: Int, text:String) {
         self.countOfLikes = countOfLikes

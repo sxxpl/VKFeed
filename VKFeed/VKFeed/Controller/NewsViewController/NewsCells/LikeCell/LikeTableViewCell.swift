@@ -12,10 +12,6 @@ class LikeTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfLikes: UILabel!
     var likeFlag = false;
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func configure(numberOfLikes:Int){
         self.numberOfLikes.text = String(numberOfLikes)

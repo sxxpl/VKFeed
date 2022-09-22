@@ -9,34 +9,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="KGk-i7-Jjw" customClass="TextTableViewCell" customModule="VKFeed" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="TextTableViewCell" customModule="VKFeed" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSG-B0-ac5">
-                        <rect key="frame" x="5" y="5" width="310" height="66"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSG-B0-ac5">
+                        <rect key="frame" x="5" y="5" width="310" height="20.333333333333332"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQK-RZ-3yA">
+                        <rect key="frame" x="5" y="30.333333333333336" width="310" height="84.666666666666657"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Показать полностью..."/>
+                        <connections>
+                            <action selector="showMore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tG7-NG-6DZ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="XQK-RZ-3yA" firstAttribute="top" secondItem="XSG-B0-ac5" secondAttribute="bottom" constant="5" id="12N-Ix-GbA"/>
                     <constraint firstItem="XSG-B0-ac5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="7np-bt-vVL"/>
+                    <constraint firstAttribute="trailing" secondItem="XQK-RZ-3yA" secondAttribute="trailing" constant="5" id="Rua-et-g6C"/>
+                    <constraint firstItem="XQK-RZ-3yA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="SaW-68-rZY"/>
                     <constraint firstItem="XSG-B0-ac5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="aDr-bo-V4B"/>
                     <constraint firstItem="XSG-B0-ac5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ePQ-cd-BY4"/>
-                    <constraint firstAttribute="bottom" secondItem="XSG-B0-ac5" secondAttribute="bottom" constant="5" id="pBM-zb-adi"/>
                     <constraint firstAttribute="trailing" secondItem="XSG-B0-ac5" secondAttribute="trailing" constant="5" id="pQf-Dg-wwe"/>
+                    <constraint firstAttribute="bottom" secondItem="XQK-RZ-3yA" secondAttribute="bottom" constant="5" id="uuP-CV-fjQ"/>
                     <constraint firstItem="XSG-B0-ac5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="x0C-Tw-fp2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellTextLabel" destination="XSG-B0-ac5" id="7MW-vq-jCQ"/>
+                <outlet property="showMoreButton" destination="XQK-RZ-3yA" id="E1I-j4-zVZ"/>
             </connections>
-            <point key="canvasLocation" x="127.69230769230769" y="31.990521327014218"/>
+            <point key="canvasLocation" x="127.69230769230769" y="47.630331753554501"/>
         </tableViewCell>
     </objects>
 </document>

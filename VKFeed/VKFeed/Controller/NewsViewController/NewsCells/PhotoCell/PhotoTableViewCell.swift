@@ -9,17 +9,21 @@ import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var cellImage: UIImageView?
 
     func configure(image:UIImage){
-        self.cellImage.image = image
+        self.cellImage?.image = image
     
+    }
+    
+    override func prepareForReuse() {
+        cellImage?.image = nil
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cellImage.layer.masksToBounds = true
-        cellImage.layer.cornerRadius = 5
+        cellImage?.layer.masksToBounds = true
+        cellImage?.layer.cornerRadius = 12
     }
 }
 
