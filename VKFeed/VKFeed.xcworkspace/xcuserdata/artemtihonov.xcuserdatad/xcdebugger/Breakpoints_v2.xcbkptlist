@@ -302,8 +302,8 @@
             filePath = "VKFeed/Controller/WebViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "loadAuth()"
             landmarkType = "7">
          </BreakpointContent>
@@ -312,22 +312,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5C0DA20D-36A6-4CA3-9A9E-DABEE5375FC6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VKFeed/Controller/WebViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "configureWeb()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7546ED98-968F-43DC-A341-F3DABF913A55"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -343,6 +327,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "7546ED98-968F-43DC-A341-F3DABF913A55"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Controller/WebViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "configureWeb()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "ADE6AD39-C85B-4B0A-9E40-2FB2256DD165"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -350,8 +350,8 @@
             filePath = "VKFeed/Controller/WebViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "loadAuth()"
             landmarkType = "7">
          </BreakpointContent>
@@ -977,6 +977,198 @@
             startingLineNumber = "109"
             endingLineNumber = "109"
             landmarkName = "getGroupsUrl()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CAB385CD-2BD1-434C-8A16-702C70E777B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Model/VKDataModels.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "CodingKeys"
+            landmarkType = "13">
+            <Locations>
+               <Location
+                  uuid = "CAB385CD-2BD1-434C-8A16-702C70E777B2 - 95c176a968891cdf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.VKResponse.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;VKFeed.VKResponse.CodingKeys&gt;"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Model/VKDataModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "CAB385CD-2BD1-434C-8A16-702C70E777B2 - f9e0ee74cb7be2a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.VKResponse.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Model/VKDataModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADCC1A8E-E43A-44E7-9723-C0FE3CF883F8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Model/Service/VKService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "getNews(completion:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "875BB713-A41B-45F7-92C0-D0FCE1F1E848"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Model/Service/VKService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "getNews(completion:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F2F9416-8208-420C-A378-2ABA3C355621"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Model/VKDataModels.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "CodingKeys"
+            landmarkType = "13">
+            <Locations>
+               <Location
+                  uuid = "6F2F9416-8208-420C-A378-2ABA3C355621 - 95c176a968891cdf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.VKResponse.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;VKFeed.VKResponse.CodingKeys&gt;"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Model/VKDataModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "6F2F9416-8208-420C-A378-2ABA3C355621 - f9e0ee74cb7be2a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.VKResponse.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Model/VKDataModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "717390F1-852F-4519-87B4-FE46101AC82C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Model/VKDataModels.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "VKNews"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "717390F1-852F-4519-87B4-FE46101AC82C - 95c176a968891cdf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.VKResponse.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;VKFeed.VKResponse.CodingKeys&gt;"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Model/VKDataModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "717390F1-852F-4519-87B4-FE46101AC82C - f9e0ee74cb7be2a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKFeed.VKResponse.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "VKFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artemtihonov/Desktop/GB1/VKFeed/VKFeed/Model/VKDataModels.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "974C89B2-4A5D-47C7-BD79-470823961FCF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKFeed/Controller/NewsViewController/NewsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "loadNews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

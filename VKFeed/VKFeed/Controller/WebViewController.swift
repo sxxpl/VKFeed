@@ -55,6 +55,7 @@ extension WebViewController:WKNavigationDelegate {
             Session.instance.token = token
             decisionHandler(.cancel)
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainTabBarContoller") as! MainTabBarController
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false   
             navigationController?.pushViewController(vc, animated: true)
             
         }
